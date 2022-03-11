@@ -1,0 +1,29 @@
+{
+  "name": "voucherify-hot-beans",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "webpack-cli",
+    "start:dev": "NODE_ENV=development webpack-dev-server --open --hot",
+    "start:backend": "npx nodemon ./backend/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@voucherify/sdk": "^2.0.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^2.0.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.16.0",
+    "webpack-cli": "^3.0.0",
+    "webpack-dev-server": "^3.1.0"
+  }
+}
