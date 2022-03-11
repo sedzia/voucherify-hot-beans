@@ -1,11 +1,19 @@
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
-
+const bp = require("body-parser");
 const express = require("express");
 const app = express();
 const port = 3000;
 const voucherifyServerSide = require("@voucherify/sdk");
+
+app.use((req, res, next) => {
+  res.append("Access-Control-Allow-Origin", ["*"]);
+  res.append("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.append("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+app.use(bp.json());
 
 app.get("/", (req, res) => {
   const client = voucherifyServerSide.VoucherifyServerSide({
@@ -24,7 +32,8 @@ app.get("/", (req, res) => {
   });
 });
 
-app.post("/checkVoucher", (req, res) => {
+app.use(bp.json());
+app.post("/check-voucher", (req, res) => {
   // const checkVoucher = async (e) => {
   //   e.preventDefault();
   //   const voucherCode = document.getElementById("voucherCode").value;
@@ -47,9 +56,11 @@ app.post("/checkVoucher", (req, res) => {
   //     alert("Voucher code is not valid");
   //   }
   // };
+  console.log("trigger");
+  console.log(req.body);
   res.send({
     message: "Hello World xdddd!",
-    test: process.env.APP_ID,
+    test: req.body,
     test2: process.env.APP_SECRET_KEY,
   });
 });

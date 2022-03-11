@@ -60,10 +60,15 @@ export default class CartSummary {
   //async function to fetch and check voucher code
 
   async checkVoucher(voucherCode) {
-    const response = await fetch(`http://localhost:3000/checkVoucher`, {
+    console.log(voucherCode);
+    const response = await fetch(`http://localhost:3000/check-voucher`, {
       method: "POST",
+      headers: {
+        //prettier-ignore
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ voucherCode }),
-      mode: "no-cors",
     });
     const data = await response.json();
     console.log(data);
@@ -126,7 +131,7 @@ export default class CartSummary {
             <h4>Shipping<span>Calculated at next step</span></h4>
             <h4>Coupon Codes:</h4>
             <form>
-              <input type="text" placeholder="Enter code your" />
+              <input id="voucherCode" type="text" placeholder="Enter code your" />
             </form>
             <button class="checkVoucherCode">-></button>
             <h4>Promotions:<span>test</span></h4></h4>
@@ -155,9 +160,8 @@ export default class CartSummary {
         this.decrementQuantity(i)
       );
     }
-    buttonToCheckVoucherCode[0].addEventListener(
-      "click",
-      this.checkVoucher("test")
+    buttonToCheckVoucherCode[0].addEventListener("click", () =>
+      this.checkVoucher(document.getElementById("voucherCode").value)
     );
   }
 }
