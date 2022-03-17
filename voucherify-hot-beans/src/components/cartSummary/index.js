@@ -57,7 +57,8 @@ export default class CartSummary {
     };
   }
 
-  //async function to fetch and check voucher code
+
+  //TODO: add event listeners to increment and decrement buttons
 
   async checkVoucher(voucherCode) {
     console.log(voucherCode);
@@ -73,6 +74,8 @@ export default class CartSummary {
     const data = await response.json();
     console.log(data);
   }
+
+  //create function 
 
   // checkVoucher = async (e) => {
   //   e.preventDefault();
