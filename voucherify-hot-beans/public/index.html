@@ -36,128 +36,107 @@
     </style>
   </head>
   <body>
-    <!-- Nav links -->
-    <div class="half-holder">
-      <nav class="nav-links">
-        <ul>
-          <li>Cart</li>
-          <li>Personal information</li>
-          <li>Shipping</li>
-          <li>Payment</li>
-        </ul>
-      </nav>
+    <!-- Navbar -->
 
-      <!-- Contact and shipping section -->
+    <section data-component="navbar" class="navbar">
+      <img class="shop-logo" alt="your shop logo" src="/images/black.png" />
+      <ul class="navbar-list-holder">
+        <li class="list-item">Bestsellers</li>
+        <li class="list-item">Shop all</li>
+        <li class="list-item">% Sales</li>
+        <li class="list-item">Hi Mary</li>
+        <li class="list-item">Shopping cart icon</li>
+      </ul>
+    </section>
 
-      <section class="contact-section">
-        <h4>
-          Contact information
-          <span>Already have and account? <a>Log in</a></span>
-        </h4>
+    <!-- Cart summary -->
+
+    <h2>Your cart</h2>
+    <div class="cart-and-summary-holder">
+      <section
+        id="cartSummary"
+        class="cartSummary"
+        data-component="cartSummary"
+      >
+        <h2>Item summary (4)</h2>
       </section>
-
-      <section>
-        <form class="contact-form">
-          <input type="text" placeholder="Email or mobile phone number" />
-          <div>
-            <input type="checkbox" id="newsletter-checkbox" />
-            <label for="newsletter-checkbox"
-              >Keep me up to date on news and offers</label
-            >
+      <section class="orderSummary" data-component="orderSummary">
+        <h2>Order summary</h2>
+        <div class="total-order-holder">
+          <h4>Subtotal<span id="subtotal-value">$135.85</span></h4>
+          <h4>Shipping<span>Calculated at next step</span></h4>
+          <h4>Coupon Codes:</h4>
+          <div class="voucher-input-and-button-holder">
+            <form>
+              <input
+                id="voucherCode"
+                type="text"
+                placeholder="Enter code your"
+              />
+            </form>
+            <button class="checkVoucherCode">&#x27A1;</button>
           </div>
-        </form>
-
-        <h4 class="address-header">Shipping address</h4>
-
-        <form class="shipping-form">
-          <input type="text" placeholder="Full Name" />
-          <input type="text" placeholder="Company (optional)" />
-          <input type="text" placeholder="Address" />
-          <div class="postal-code-and-city">
-            <input type="text" placeholder="Postal code" />
-            <input type="text" placeholder="City" />
+          <div class="promotions-holder">
+            <h4>Promotions:</h4>
+            <div id="promotion-holder"" class="promotion-holder">
+              <!-- <h5>Pay over $59.99<span>(-$10.00)</span></h5>
+              <span>-$10.00</span> -->
+            </div>
           </div>
-          <input type="text" placeholder="Country/Region" />
-          <p class="save-info-checkbox-and-label-holder">
-            <input type="checkbox" id="save-info-checkbox" />
-            <label for="save-info-checkbox"
-              >Save this information for next time</label
-            >
-          </p>
-        </form>
-        <div>
-          <button class="continue">Continue to shipping</button>
-          <button class="return"><- Return to cart</button>
+          <h4 class="discount-price-holder">
+            All Your Discounts:<span id="all-discounts-value">n/a</span>
+          </h4>
+          <h4>Grand total:<span id="grand-total-value">$135.85</span></h4>
         </div>
+        <button class="checkout-button">Checkout</button>
       </section>
     </div>
 
-    <div class="half-holder">
-      <section>
-        <div>
-            <div class="item" key="${index}">
-              <img src="/" />
-              <div class="name-and-description">
-                <span>Johan & Nystrom Caravan</span>
-                <span>Quantity: 1</span>
-              </div>
-
-              <span class="price">$26.99</span>
-            </div>
-            <div class="item" key="${index}">
-              <img src="/" />
-              <div class="name-and-description">
-                <span>Illy Arabica</span>
-                <span>Quantity: 1</span>
-              </div>
-
-              <span class="price">$21.02</span>
-            </div>
-            <div class="item" key="${index}">
-              <img src="/" />
-              <div class="name-and-description">
-                <span>Hard Beans Etiopia</span>
-                <span>Quantity: 1</span>
-              </div>
-
-              <span class="price">$3.88</span>
-            </div>
-            <div class="item" key="${index}">
-              <img src="/" />
-              <div class="name-and-description">
-                <span>Johan & Nystrom Bourbon</span>
-                <span>Quantity: 2</span>
-              </div>
-
-              <span class="price">$41.98</span>
-            </div>
-          </div>
-        </section>
-        <section>
+    <footer data-component="footer" class="footer">
+      <div class="footer-left-holder">
+        <img
+          class="footer-shop-logo"
+          src="/images/black.png"
+          alt="footer-shop-logo"
+        />
+        <form>
+          <label for="email">Sign up for offers and more</label>
           <div>
-            <h5>Discounts applied to cart</h5>
-            <div>
-              <button>-> My coupons</button>
-              <button>+Add code</button>
-            </div>
+            <input
+              type="email"
+              disabled="true"
+              placeholder="Enter your email here"
+            />
+            <button>-></button>
           </div>
-          <div class="promotion-holder">
-            <h5>Pay over $59.99<span>(-$10.00)</span></h5>
-            <span>-$10.00</span>
-          </div>
-          <div class="total-order-holder">
-            <h4>Value<span>-$10.00</span></h4>
-            <h4>Subtotal<span>$93.87</span></h4>
-            <h4>All your discounts<span>-$10.00</span></h4>
-            <h4>Shipping<span>$20.00</span></h4>
-            <h4>Grand total<span>$103.87</span></h4>
-          </div>
-        </section>
+        </form>
+        <div class="social-media-icons">
+          <a href="#"></a>
+          <a href="#"></a>
+          <a href="#"></a>
         </div>
-
-      
-        
+        <p class="copyright-holder">© 2022 voucherify</p>
       </div>
-    </div>
+      <div class="footer-right-holder">
+        <ul>
+          <li>Discover</li>
+          <li>Bestsellers</li>
+          <li>Shop all</li>
+          <li>% Sales</li>
+        </ul>
+        <ul>
+          <li>About</li>
+          <li>Help Center</li>
+          <li>Shipping/Return</li>
+          <li>Affiliates</li>
+        </ul>
+        <ul>
+          <li>Legal</li>
+          <li>Contact</li>
+          <li>Privacy Policies</li>
+          <li>Terms & Conditions</li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>

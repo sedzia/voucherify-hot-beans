@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Vanilla Js 🌴🌴🌴</title>
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <!-- <script src="bundle.js"></script> -->
+    <script src="script.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        font-family: "Work Sans", sans-serif;
+        color: black;
+        background-color: #fff;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav links -->
+    <div class="half-holder">
+      <nav class="nav-links">
+        <ul>
+          <li>Cart</li>
+          <li>Personal information</li>
+          <li>Shipping</li>
+          <li>Payment</li>
+        </ul>
+      </nav>
+
+      <!-- Contact and shipping section -->
+
+      <section class="contact-section">
+        <h4>
+          Contact information
+          <span>Already have and account? <a>Log in</a></span>
+        </h4>
+      </section>
+
+      <section>
+        <form class="contact-form">
+          <input type="text" placeholder="Email or mobile phone number" />
+          <div>
+            <input type="checkbox" id="newsletter-checkbox" />
+            <label for="newsletter-checkbox"
+              >Keep me up to date on news and offers</label
+            >
+          </div>
+        </form>
+
+        <h4 class="address-header">Shipping address</h4>
+
+        <form class="shipping-form">
+          <input type="text" placeholder="Full Name" />
+          <input type="text" placeholder="Company (optional)" />
+          <input type="text" placeholder="Address" />
+          <div class="postal-code-and-city">
+            <input type="text" placeholder="Postal code" />
+            <input type="text" placeholder="City" />
+          </div>
+          <input type="text" placeholder="Country/Region" />
+          <p class="save-info-checkbox-and-label-holder">
+            <input type="checkbox" id="save-info-checkbox" />
+            <label for="save-info-checkbox"
+              >Save this information for next time</label
+            >
+          </p>
+        </form>
+        <div>
+          <button class="continue">Continue to shipping</button>
+          <button class="return"><- Return to cart</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="half-holder">
+      <section>
+        <div>
+            <div class="item" key="${index}">
+              <img src="/" />
+              <div class="name-and-description">
+                <span>Johan & Nystrom Caravan</span>
+                <span>Quantity: 1</span>
+              </div>
+
+              <span class="price">$26.99</span>
+            </div>
+            <div class="item" key="${index}">
+              <img src="/" />
+              <div class="name-and-description">
+                <span>Illy Arabica</span>
+                <span>Quantity: 1</span>
+              </div>
+
+              <span class="price">$21.02</span>
+            </div>
+            <div class="item" key="${index}">
+              <img src="/" />
+              <div class="name-and-description">
+                <span>Hard Beans Etiopia</span>
+                <span>Quantity: 1</span>
+              </div>
+
+              <span class="price">$3.88</span>
+            </div>
+            <div class="item" key="${index}">
+              <img src="/" />
+              <div class="name-and-description">
+                <span>Johan & Nystrom Bourbon</span>
+                <span>Quantity: 2</span>
+              </div>
+
+              <span class="price">$41.98</span>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="discounts-and-buttons-holder">
+            <h5>Discounts applied to cart</h5>
+            <div>
+              <button>-> My coupons</button>
+              <button>+ Add code</button>
+            </div>
+          </div>
+          <div class="promotion-holder">
+            <h5>Pay over $59.99<span>(-$10.00)</span></h5>
+          </div>
+          <div class="total-order-holder">
+            <h4>Value<span>-$10.00</span></h4>
+            <h4>Subtotal<span>$93.87</span></h4>
+            <h4>All your discounts<span>-$10.00</span></h4>
+            <h4>Shipping<span>$20.00</span></h4>
+            <h4>Grand total<span>$103.87</span></h4>
+          </div>
+        </section>
+        </div>
+
+      
+        
+      </div>
+    </div>
+  </body>
+</html>
