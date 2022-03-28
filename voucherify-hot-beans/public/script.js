@@ -1,5 +1,6 @@
 window.addEventListener("load", () => {
   const cartSummary = document.getElementById("cartSummary");
+  const checkoutButton = document.getElementById("checkout-button");
   const promotionHolder = document.getElementById("promotion-holder");
   let items = [
     {
@@ -68,6 +69,52 @@ window.addEventListener("load", () => {
       return false;
     }
   }
+  async function redeemVoucherCode(voucherCode) {
+    if (items.reduce((a, b) => a + b.quantity, 0) === 0) {
+      promotionHolder.innerHTML = `<h5 id="error-message">No items in basket!</h5>`;
+
+      return false;
+    }
+    if (!voucherCode) {
+      promotionHolder.innerHTML = `<h5 id="error-message">Please enter voucher code!</h5>`;
+      return false;
+    }
+    const response = await fetch(`http://localhost:3000/redeem-voucher`, {
+      method: "POST",
+      headers: {
+        //prettier-ignore
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ voucherCode }),
+    });
+    const data = await response.json();
+    if (data.message === "Voucher granted" && data.status === "success") {
+      promotionHolder.innerHTML = null;
+      return { amount: data.amount, campaign: data.campaign };
+    }
+    if (data.status === "error") {
+      promotionHolder.innerHTML = `<h5 id="error-message">Voucher code incorrect</h5>`;
+      return false;
+    }
+  }
+
+  checkoutButton.addEventListener("click", () => {
+    redeemVoucherCode(document.getElementById("voucherCode").value).then(
+      (result) => {
+        if (result.amount) {
+          promotions = result.amount / 100;
+          grandTotal = addProductPrices(items) - promotions;
+          grandTotalSpan.innerHTML = `$${grandTotal.toFixed(2)}`;
+          allDiscountsSpan.innerHTML = `-$${promotions.toFixed(2)}`;
+          promotionHolder.innerHTML = `<h5>${
+            result.campaign
+          }<span>(-${promotions.toFixed(2)})</span></h5>
+            <span>-$${promotions.toFixed(2)}</span>`;
+        }
+      }
+    );
+  });
 
   buttonToCheckVoucherCode[0].addEventListener("click", () => {
     checkVoucherCode(document.getElementById("voucherCode").value).then(
