@@ -74,12 +74,6 @@ app.post("/check-voucher", (req, res) => {
         });
       });
   }
-
-  console.log("trigger");
-  console.log(req.body.voucherCode);
-  // res.send({
-  //   message: "Hello World xdddd!",
-  // });
 });
 
 app.post("/redeem-voucher", (req, res) => {
@@ -133,12 +127,6 @@ app.post("/redeem-voucher", (req, res) => {
         });
       });
   }
-
-  console.log("trigger");
-  console.log(req.body.voucherCode);
-  // res.send({
-  //   message: "Hello World xdddd!",
-  // });
 });
 
 app.listen(port, () => {

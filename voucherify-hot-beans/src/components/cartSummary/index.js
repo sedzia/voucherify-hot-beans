@@ -57,11 +57,9 @@ export default class CartSummary {
     };
   }
 
-
   //TODO: add event listeners to increment and decrement buttons
 
   async checkVoucher(voucherCode) {
-    console.log(voucherCode);
     const response = await fetch(`http://localhost:3000/check-voucher`, {
       method: "POST",
       headers: {
@@ -72,33 +70,7 @@ export default class CartSummary {
       body: JSON.stringify({ voucherCode }),
     });
     const data = await response.json();
-    console.log(data);
   }
-
-  //create function 
-
-  // checkVoucher = async (e) => {
-  //   e.preventDefault();
-  //   const voucherCode = document.getElementById("voucherCode").value;
-  //   const response = await fetch(
-  //     `https://api.voucherify.io/v1/campaigns/voucherify-test-campaign/vouchers/${voucherCode}`,
-  //     {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "X-Client-Application-Id": "011240bf-d5fc-4ef1-9e82-11eb68c43bf5",
-  //         "X-Client-Token": "9e2230c5-71fb-460a-91c6-fbee64707a20",
-  //       },
-  //     }
-  //   );
-  //   const data = await response.json();
-  //   console.log(data);
-  //   if (data.data.status === "redeemed") {
-  //     alert("Voucher code is redeemed");
-  //   } else {
-  //     alert("Voucher code is not valid");
-  //   }
-  // };
 
   render() {
     if (this.elem)
